@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const ROSE_IMAGE   = "assets/rose.jpg";      // 최신 장미 이미지
-  const LETTER_IMAGE = "assets/letter.png";    // 최신 편지 이미지
+  const ROSE_IMAGE   = "assets/rose.jpg";
+  const LETTER_IMAGE = "assets/letter.png";
 
   /* ----- 초기 오버레이 (예/아니오) ----- */
   const overlay = document.createElement("div");
@@ -14,18 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
   document.body.appendChild(overlay);
 
-  /* ----- 아니오 → “안대안대” 알림 ----- */
   overlay.querySelector("#noBtn").addEventListener("click", () => {
     alert("안대안대. 무조건 예를 눌러야 해요! 🙈");
   });
 
-  /* ----- 예 클릭 → 장미 100송이 + 편지 ----- */
   overlay.querySelector("#yesBtn").addEventListener("click", () => {
     overlay.remove();
     showRoseScreen();
   });
 
-  /* ---------- 장미 화면 ---------- */
   function showRoseScreen() {
     const screen = document.createElement("div");
     screen.id = "roseScreen";
@@ -45,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(showLetter, 2000);
   }
 
-  /* ---------- 편지 화면 ---------- */
   function showLetter() {
     const note = document.createElement("div");
     note.style.position = "fixed";
