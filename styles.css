@@ -1,0 +1,66 @@
+/* ---------- 기본 레이아웃 ---------- */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: #000;                     /* 검은 배경 */
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------- 글래스 컨테이너 ---------- */
+#overlay, #roseScreen {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* ---------- 타이틀·서브타이틀 ---------- */
+h1 { font-size: 2.8rem; font-weight: 600; margin: 0; }
+h2 { font-size: 1.4rem; font-weight: 400; opacity: .85; }
+
+/* ---------- 버튼 ---------- */
+button {
+  padding: .8rem 1.6rem;
+  font-size: 1rem;
+  border-radius: .6rem;
+  border: none;
+  cursor: pointer;
+  transition: transform .15s, background .2s;
+}
+button:hover { transform: scale(1.07); }
+#yesBtn { background: #e91e63; color: #fff; }
+#noBtn  { background: #555;   color: #fff; }
+
+/* ---------- 장미 그리드 ---------- */
+#roses {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px,1fr));
+  gap: .8rem;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+#roses img {
+  width: 100%;
+  height: auto;
+  border-radius: .4rem;
+  animation: pop .4s ease-out forwards;
+}
+
+/* ---------- 애니메이션 ---------- */
+@keyframes pop {
+  0%   { transform: scale(0); opacity: 0; }
+  80%  { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
